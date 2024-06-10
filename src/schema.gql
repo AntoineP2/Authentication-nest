@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Role {
+  roleId: ID!
+  roleName: String!
+  UserRoles: [UserRole!]!
+}
+
+type UserRole {
+  userId: ID!
+  roleId: ID!
+  user: User!
+  role: Role!
+}
+
+type User {
+  id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  trigramme: String!
+  UserRoles: [UserRole!]!
+}
+
+type Query {
+  userExists(email: String!, password: String!): String!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): String!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  trigramme: String!
+  email: String!
+  password: String!
+}
